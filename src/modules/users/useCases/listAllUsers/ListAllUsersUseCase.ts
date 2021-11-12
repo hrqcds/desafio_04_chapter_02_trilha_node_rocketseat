@@ -9,7 +9,7 @@ class ListAllUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
   execute({ user_id }: IRequest): User[] {
-    const user = this.usersRepository.findById(user_id);
+    const user: User = this.usersRepository.findById(user_id);
 
     if (!user) {
       throw new Error("mensagem do erro");
@@ -19,7 +19,7 @@ class ListAllUsersUseCase {
       throw new Error("mensagem do erro");
     }
 
-    const users = this.usersRepository.list();
+    const users: User[] = this.usersRepository.list();
 
     return users;
   }

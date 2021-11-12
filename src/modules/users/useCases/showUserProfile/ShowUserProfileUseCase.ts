@@ -10,7 +10,7 @@ class ShowUserProfileUseCase {
 
   execute({ user_id }: IRequest): User {
     // Complete aqui
-    const user = this.usersRepository.findById(String(user_id));
+    const user: User = this.usersRepository.findById(String(user_id));
 
     if (!user) {
       throw new Error("mensagem do err");

@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { User } from "modules/users/model/User";
 
 import { ListAllUsersUseCase } from "./ListAllUsersUseCase";
 
@@ -11,7 +12,7 @@ class ListAllUsersController {
     const id = String(user_id);
 
     try {
-      const users = this.listAllUsersUseCase.execute({ user_id: id });
+      const users: User[] = this.listAllUsersUseCase.execute({ user_id: id });
 
       return response.json(users);
     } catch (error) {
